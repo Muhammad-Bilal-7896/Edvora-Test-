@@ -1,4 +1,31 @@
 #homeMainBody {
     background-color: #292929;
     height: 100vh;
+    padding-top: 3%;
+}
+.container_own {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+.h-100 {
+    height: 100vh !important;
+}
+//Filter Div Styling
+.filter_div {
+    margin: 0 auto;
+    width: 228px;
+    height: 275px;
+    background: #131313;
+    border-radius: 15px;
+}
+.filter_txt {
+    padding-left: 0px;
+    font-size: 20px;
+    padding-top: 20px;
+    color: #a5a5a5;
+    font-weight: lighter;
+}
+.border_line {
+    border-bottom: 1px solid white !important;
 }
