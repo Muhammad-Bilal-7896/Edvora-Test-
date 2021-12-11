@@ -8,8 +8,17 @@ import "firebase/firestore"
 
 const Home = () => {
   return (
-    <div>
-      <h1>Hello</h1>
+    <div id="homeMainBody">
+      <div className='container'>
+        <div className="row">
+          <div className="col-md-3 border">
+
+          </div>
+          <div className="col-md-9 border">
+
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
