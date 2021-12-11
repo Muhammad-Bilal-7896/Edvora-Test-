@@ -20,6 +20,31 @@ const Home = () => {
                       Filters
                     </h6>
                     <p className='border_line'></p>
+
+
+                    <div className="mt_custom">
+                      <select className="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option selected>Products</option>
+                        <option value={1}>One</option>
+                        <option value={2}>Two</option>
+                        <option value={3}>Three</option>
+                      </select>
+
+                      <select className="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option selected>State</option>
+                        <option value={1}>One</option>
+                        <option value={2}>Two</option>
+                        <option value={3}>Three</option>
+                      </select>
+
+                      <select className="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <option selected>City</option>
+                        <option value={1}>One</option>
+                        <option value={2}>Two</option>
+                        <option value={3}>Three</option>
+                      </select>
+                    </div>
+
                   </div>
                 </div>
               </div>
