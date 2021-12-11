@@ -1,0 +1,82 @@
+.fontWeight-light
+{
+    font-weight: lighter;
+}
+.btn-continue
+{
+    border-radius: 5px;
+    font-size: 14px;
+    word-spacing: 3px !important;
+    font-weight: lighter !important;
+}
+.btn-rounded
+{
+    border-radius: 20px !important;
+}
+.blockProject
+{
+    width: 300px !important;
+    margin-left: 1%;
+    height: 430px;
+    display: inline-block;    
+    margin-top: 1%;
+    align-items: left;
+}
+.listProject
+{
+    width: 90% !important;
+    margin: 0 auto;
+    margin-top: 1%;
+    align-items: center;
+}
+.card
+{
+    height: 430px !important;
+    text-align: left;
+    box-shadow: 1px 0.5px 1px 1px rgb(194, 194, 194);
+    border: 0.5px solid rgb(226, 226, 226);
+}
+.card2
+{
+    height: auto !important;
+    text-align: center;
+    box-shadow: 1px 0.5px 1px 1px rgb(194, 194, 194);
+    border: 0.5px solid rgb(226, 226, 226);
+}
+.containerProjectsList
+{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.img-card
+{
+    height: 200px !important;
+}
+.card-title
+{
+    height: 80px;
+    /* border: 1px solid black; */
+    font-family: cursive;
+    font-size: 30px;
+}
+.card-title2
+{
+    height: auto;
+    margin-bottom: 20px;
+    /* border: 1px solid black; */
+    font-family: cursive;
+    font-size: 30px;
+    color: rgb(0, 0, 109);
+}
+.newProjectBtn
+{
+    position: fixed;
+    bottom: 2%;
+    left: 2%;
+    z-index: 1000;
+}
+#ex3-tab-1,#ex3-tab-2
+{
+    font-size: 20px;
+}
