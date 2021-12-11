@@ -50,9 +50,12 @@ const Home = () => {
             </div>
           </div>
           <div className="col-md-9 border h-100">
-             <h1 className='right_heading'>Edvora</h1>
-             <h3 className='right_heading1'>Products</h3>
-             <p className='right_txt'>Product Name</p>
+            <h1 className='right_heading'>Edvora</h1>
+            <h3 className='right_heading1'>Products</h3>
+            <p className='right_txt'>Product Name</p>
+
+            <p className='border_line_right'></p>
+
           </div>
         </div>
       </div>
