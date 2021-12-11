@@ -11,7 +11,7 @@ const Home = () => {
     <div id="homeMainBody">
       <div className='container_own'>
         <div className="row">
-          <div className="col-md-3 border h-100">
+          <div className="col-md-3 h-100">
             <div className="filter_div">
               <div className="container">
                 <div className="container">
@@ -49,7 +49,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-9 border h-100">
+          <div className="col-md-9 h-100">
             <h1 className='right_heading'>Edvora</h1>
             <h3 className='right_heading1'>Products</h3>
             <p className='right_txt'>Product Name</p>
