@@ -1,11 +1,47 @@
 import React, { useState, useEffect } from 'react'
 
 //Importing Components
-import Products from '../Components/Product';
+//Not Using products as different data is loaded while getting data from API
+//import Products from '../Components/Product';
+import Items from '../Components/Items';
+
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+//import person_image from "../public/resources/img.png";
+// const person_image = require('../resources/img.png');
+
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+    slidesToSlide: 4 // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    slidesToSlide: 2 // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1 // optional, default to 1.
+  }
+};
 
 const Home = () => {
 
   const [api_data, set_api_data] = useState([]);
+
+  //Product names
+  const [product_names, set_product_names] = useState([]);
+
+  //States
+  const [states,set_states] = useState([]);
+ 
+  //City
+  const [city,setCity] = useState([]);
 
   //Using the useEffect like ComponentDidMount
   useEffect(() => {
@@ -14,6 +50,15 @@ const Home = () => {
       .then(json => {
         console.log("JSON data is equal to: ", json);
         set_api_data(json)
+        let pn = [];
+        let sn = [];
+        for (let i = 0; i < json.length; i++) {
+          pn.push(json[i].product_name)
+          sn.push(json[i].state)
+        }
+        set_product_names(pn);
+        set_states(sn)
+        console.log("Pn => ", pn)
       })
   }, [])
 
@@ -35,15 +80,15 @@ const Home = () => {
 
                 <div className="container_own2 mt_custom">
                   <select className="form-select form-select-sm">
-                    <option selected>Products</option>
+                    {/* <option selected>Products</option>
                     <option value={1}>One</option>
                     <option value={2}>Two</option>
-                    <option value={3}>Three</option> 
-                    {/* {["Products", ...api_data].map((v, i) => {
-                      return <option value={v.product_name} key={i}>
+                    <option value={3}>Three</option>  */}
+                    {["Products", ...product_names].map((v, i) => {
+                      return <option value={v} key={i}>
                         {v}
                       </option>
-                    })} */}
+                    })}
                   </select>
 
                   <select className="form-select form-select-sm">
@@ -71,7 +116,39 @@ const Home = () => {
 
             <p className='border_line_right'></p>
 
-            <Products />
+            <div className="container_items">
+              <Carousel
+                swipeable={true}
+                draggable={true}
+                showDots={false}
+                responsive={responsive}
+                ssr={true} // means to render carousel on server-side.
+                infinite={true}
+                autoPlay={true}
+                autoPlaySpeed={1000}
+                keyBoardControl={true}
+                customTransition="all .5"
+                transitionDuration={500}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                deviceType={"Desktop"}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-40-px"
+              >
+                {api_data.map((v, i) => {
+                  return <Items
+                    image={v.image}
+                    product_name={v.product_name}
+                    key={v.i}
+                    brand_name={v.brand_name}
+                    price={v.price}
+                    address={`${v.address.state} , ${v.address.city}`}
+                    date={v.date}
+                    discription={v.discription}
+                  />
+                })}
+              </Carousel>;
+            </div>
 
             <br />
 
@@ -79,7 +156,39 @@ const Home = () => {
 
             <p className='border_line_right'></p>
 
-            <Products />
+            <div className="container_items">
+              <Carousel
+                swipeable={true}
+                draggable={true}
+                showDots={false}
+                responsive={responsive}
+                ssr={true} // means to render carousel on server-side.
+                infinite={true}
+                autoPlay={true}
+                autoPlaySpeed={1000}
+                keyBoardControl={true}
+                customTransition="all .5"
+                transitionDuration={500}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                deviceType={"Desktop"}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-40-px"
+              >
+                {api_data.map((v, i) => {
+                  return <Items
+                    image={v.image}
+                    product_name={v.product_name}
+                    key={v.i}
+                    brand_name={v.brand_name}
+                    price={v.price}
+                    address={`${v.address.state} , ${v.address.city}`}
+                    date={v.date}
+                    discription={v.discription}
+                  />
+                })}
+              </Carousel>;
+            </div>
 
           </div>
         </div>
