@@ -119,12 +119,19 @@ body {
     font-size: 15px;
     font-weight: lighter;
     margin-left: 14px;
+   
+    white-space: nowrap;
+    width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .item_text2 {
     color: #ffffff;
     font-size: 13px;
     font-weight: lighter;
     margin-left: 14px;
+
+    
 }
 .item_text3 {
     color: #ffffff;
@@ -141,12 +148,22 @@ body {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
     font-weight: lighter;
+
+    white-space: nowrap;
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .item_text_down2 {
-    margin-left: 35px;
+    margin-left: 10px;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
     font-weight: lighter;
+
+    white-space: nowrap;
+    width: 65px;
+    overflow: hidden;
+    text-overflow: ".";
 }
 .item_text_down3 {
     margin-left: 10px;
