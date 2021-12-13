@@ -6,11 +6,8 @@ import "../ContainerCss/Home.scss";
 //Importing the styles for navigation bar.
 import "../Components/Navbar/Navbar.css";
 
-import "react-date-picker/dist/DatePicker.css"
-import "react-calendar/dist/Calendar.css"
-
-import { Provider } from 'react-redux'
-import store from "../store";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 
 function MyApp({ Component, pageProps }) {
   return <>
@@ -35,9 +32,9 @@ function MyApp({ Component, pageProps }) {
       ></script>
       <title>Edvora Test</title>
     </Head>
-    <Provider store={store}>
+    
       <Component {...pageProps} />
-    </Provider>
+  
   </>
 }
 

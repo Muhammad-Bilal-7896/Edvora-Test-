@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link"
 import Router from "next/router"
-import { connect } from "react-redux";
-import firebase from '../../firebase/index';
-import "firebase/auth";
+
 const Navbar = (props) => {
     const [signedInUserData, setSignedInUserData] = useState({});
     const [status, setStatus] = useState(false);
@@ -99,10 +97,4 @@ const Navbar = (props) => {
         </>
     )
 }
-const mapStateToProps = (state) => ({
-    user_data: state.auth.USER
-})
-// const mapDispatchToProp = (dispatch) => ({
-//     set_data: (data) => dispatch(set_data(data))
-//   })
-export default connect(mapStateToProps, null)(Navbar);
+export default Navbar;
