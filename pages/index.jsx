@@ -100,8 +100,18 @@ const Home = () => {
                 itemClass="carousel-item-padding-40-px"
               >
                 <div className="individual_item">
-                  <div className="inside_individual_item">
+                  {/* <div className="inside_individual_item">
                     <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <span>Product Name</span>
+                    <span>Brand Name</span>
+                  </div> */}
+                  <div className="d-flex">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div>
+                      <h6>Product Name</h6>
+                      <h6>Brand Name</h6>
+                      <h6>$ 29.99</h6>
+                    </div>
                   </div>
                 </div>
                 {/* <div>
