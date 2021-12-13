@@ -35,10 +35,15 @@ const Home = () => {
 
                 <div className="container_own2 mt_custom">
                   <select className="form-select form-select-sm">
-                    <option selected>Products</option>
+                    {/* <option selected>Products</option>
                     <option value={1}>One</option>
                     <option value={2}>Two</option>
-                    <option value={3}>Three</option>
+                    <option value={3}>Three</option> */}
+                    {/* {["Products", ...api_data].map((v, i) => {
+                      return <option value={v.product_name} key={i}>
+                        {v}
+                      </option>
+                    })} */}
                   </select>
 
                   <select className="form-select form-select-sm">
