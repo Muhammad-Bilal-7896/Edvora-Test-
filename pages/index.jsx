@@ -82,9 +82,9 @@ const Home = () => {
 
             <div className="container_items">
               <Carousel
-                swipeable={false}
-                draggable={false}
-                showDots={true}
+                swipeable={true}
+                draggable={true}
+                showDots={false}
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
                 infinite={true}
@@ -100,39 +100,214 @@ const Home = () => {
                 itemClass="carousel-item-padding-40-px"
               >
                 <div className="individual_item">
-                  {/* <div className="inside_individual_item">
-                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
-                    <span>Product Name</span>
-                    <span>Brand Name</span>
-                  </div> */}
                   <div className="d-flex .justify-content-center mt-2">
                     <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
-                    <div className='mt-1'>
+                    <div className='mt-3'>
                       <h6 className='item_text1'>Product Name</h6>
                       <h6 className='item_text2'>Brand Name</h6>
                       <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
                     </div>
                   </div>
-                </div>
-                {/* <div>
-                      <h5>Product Name</h5>
-                      <h6>Brand Name</h6>
-                      <p>$ 29.99</p>
-                    </div> */}
-                <div className="individual_item">
-                  <div className="inside_individual_item">
-                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
                   </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
                 </div>
                 <div className="individual_item">
-                  <div className="inside_individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
                     <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
                   </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
                 </div>
                 <div className="individual_item">
-                  <div className="inside_individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
                     <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
                   </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+              </Carousel>;
+            </div>
+
+            <br />
+
+            <p className='right_txt'>Product Name</p>
+
+            <p className='border_line_right'></p>
+
+            <div className="container_items">
+              <Carousel
+                swipeable={true}
+                draggable={true}
+                showDots={false}
+                responsive={responsive}
+                ssr={true} // means to render carousel on server-side.
+                infinite={true}
+                autoPlay={true}
+                autoPlaySpeed={1000}
+                keyBoardControl={true}
+                customTransition="all .5"
+                transitionDuration={500}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                deviceType={"Desktop"}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-40-px"
+              >
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
+                </div>
+                <div className="individual_item">
+                  <div className="d-flex .justify-content-center mt-2">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                    <div className='mt-3'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
+                    </div>
+                  </div>
+                  <div className="d-flex mt-2">
+                    <h6 className='item_text_down1'>Location</h6>
+                    <h6 className='item_text_down2'>Date: 10:12:2021</h6>
+                  </div>
+                  <h6 className='item_text_down3'>Description of the Product / Item</h6>
                 </div>
               </Carousel>;
             </div>

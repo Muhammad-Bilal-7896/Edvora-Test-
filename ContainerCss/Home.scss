@@ -1,3 +1,6 @@
+body {
+    background-color: #292929 !important;
+}
 #homeMainBody {
     background-color: #292929;
     height: 100%;
@@ -81,7 +84,7 @@
 .individual_item {
     width: 210px;
     height: 150px;
-    border: 1px solid white;
+    // border: 1px solid white;
     margin-left: 10px;
     background: #232323;
     border-radius: 4.68775px;
@@ -98,6 +101,9 @@
 .img_person_avatar {
     border-radius: 5px;
     margin-left: 12px;
+    width: 70px;
+    margin-top: 12px;
+    height: 70px;
 }
 .individual_item {
     margin-left: 10px;
@@ -126,8 +132,25 @@
     font-weight: lighter;
     margin-left: 14px;
 }
-.dollar
-{
+.dollar {
     font-size: 16px;
     margin-right: 5px;
+}
+.item_text_down1 {
+    margin-left: 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: lighter;
+}
+.item_text_down2 {
+    margin-left: 35px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: lighter;
+}
+.item_text_down3 {
+    margin-left: 10px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: lighter;
 }
