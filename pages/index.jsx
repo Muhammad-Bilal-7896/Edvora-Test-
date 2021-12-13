@@ -10,8 +10,6 @@ import 'react-multi-carousel/lib/styles.css';
 // const person_image = require('../resources/img.png');
 
 
-
-
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -31,6 +29,18 @@ const responsive = {
 };
 
 const Home = () => {
+
+  const [api_data,set_api_data] = useState([]);
+
+  useEffect(() => {
+    fetch('https://assessment-edvora.herokuapp.com')
+      .then(res => res.json())
+      .then(json => {
+        console.log("JSON data is equal to: ", json);
+        set_api_data(json)
+      })
+  }, [])
+
   return (
     <div id="homeMainBody">
       <div className='container_own'>
