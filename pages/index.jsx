@@ -105,12 +105,12 @@ const Home = () => {
                     <span>Product Name</span>
                     <span>Brand Name</span>
                   </div> */}
-                  <div className="d-flex">
+                  <div className="d-flex .justify-content-center mt-2">
                     <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
-                    <div>
-                      <h6>Product Name</h6>
-                      <h6>Brand Name</h6>
-                      <h6>$ 29.99</h6>
+                    <div className='mt-1'>
+                      <h6 className='item_text1'>Product Name</h6>
+                      <h6 className='item_text2'>Brand Name</h6>
+                      <h6 className='item_text3'><span className="dollar">$</span> <span>29.99</span></h6>
                     </div>
                   </div>
                 </div>
