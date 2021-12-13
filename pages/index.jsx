@@ -15,8 +15,8 @@ import 'react-multi-carousel/lib/styles.css';
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4,
-    slidesToSlide: 4 // optional, default to 1.
+    items: 3,
+    slidesToSlide: 3 // optional, default to 1.
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -58,7 +58,8 @@ const Home = () => {
           sn.push(json[i].address.state);
           cn.push(json[i].address.city);
         }
-        set_product_names(pn);
+        var unique_pn = [...new Set(pn)]; // ["a", "b"]
+        set_product_names(unique_pn);
         set_state_names(sn);
         setCity(cn);
         console.log("Pn => ", pn)
@@ -117,6 +118,60 @@ const Home = () => {
           <div className="col-md-9 h-100">
             <h1 className='right_heading'>Edvora</h1>
             <h3 className='right_heading1'>Products</h3>
+
+            {product_names.map((pn, i) => {
+              return <div key={i}>
+                <p className='right_txt'>{pn}</p>
+
+                <p className='border_line_right'></p>
+
+                <div className="container_items">
+                  <Carousel
+                    swipeable={true}
+                    draggable={true}
+                    showDots={false}
+                    responsive={responsive}
+                    infinite={true}
+                    autoPlay={false}
+                    autoPlaySpeed={1000}
+                    keyBoardControl={true}
+                    customTransition="all .5"
+                    transitionDuration={500}
+                    containerClass="carousel-container"
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    deviceType={"Desktop"}
+                    dotListClass="custom-dot-list-style"
+                    itemClass="carousel-item-padding-40-px"
+                  >
+                    {/* If the Product Name equals the data product name then render them otherwise not */}
+                    {api_data.map((data, j) => {
+                      return <div key={j}>
+                        {(data.product_name == pn) ? (
+                          <Items
+                            image={data.image}
+                            product_name={data.product_name}
+                            key={data.j}
+                            brand_name={data.brand_name}
+                            price={data.price}
+                            address={`${data.address.state} , ${data.address.city}`}
+                            date={data.date}
+                            discription={data.discription}
+                          />
+                        ) : (
+                          <div className='d_none'></div>
+                        )}
+                      </div>
+                    })}
+                  </Carousel>
+                </div>
+              </div>
+            })}
+
+
+            <br /><br />
+
+            {/* <br />
+
             <p className='right_txt'>Product Name</p>
 
             <p className='border_line_right'></p>
@@ -155,49 +210,7 @@ const Home = () => {
                   </div>
                 })}
               </Carousel>;
-            </div>
-
-            <br />
-
-            <p className='right_txt'>Product Name</p>
-
-            <p className='border_line_right'></p>
-
-            <div className="container_items">
-              <Carousel
-                swipeable={true}
-                draggable={true}
-                showDots={false}
-                responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={1000}
-                keyBoardControl={true}
-                customTransition="all .5"
-                transitionDuration={500}
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["tablet", "mobile"]}
-                deviceType={"Desktop"}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
-              >
-                {api_data.map((v, i) => {
-                  return <div key={i}>
-                    <Items
-                      image={v.image}
-                      product_name={v.product_name}
-                      key={v.i}
-                      brand_name={v.brand_name}
-                      price={v.price}
-                      address={`${v.address.state} , ${v.address.city}`}
-                      date={v.date}
-                      discription={v.discription}
-                    />
-                  </div>
-                })}
-              </Carousel>;
-            </div>
+            </div> */}
 
           </div>
         </div>

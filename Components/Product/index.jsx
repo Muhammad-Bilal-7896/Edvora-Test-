@@ -74,7 +74,7 @@ const Products = () => {
                     discription={v.discription}
                   />
                 })}
-              </Carousel>;
+              </Carousel>
             </div>
   )
 }
