@@ -38,10 +38,10 @@ const Home = () => {
   const [product_names, set_product_names] = useState([]);
 
   //States
-  const [states,set_states] = useState([]);
- 
+  const [state_names, set_state_names] = useState([]);
+
   //City
-  const [city,setCity] = useState([]);
+  const [city, setCity] = useState([]);
 
   //Using the useEffect like ComponentDidMount
   useEffect(() => {
@@ -52,12 +52,15 @@ const Home = () => {
         set_api_data(json)
         let pn = [];
         let sn = [];
+        let cn = [];
         for (let i = 0; i < json.length; i++) {
-          pn.push(json[i].product_name)
-          sn.push(json[i].state)
+          pn.push(json[i].product_name);
+          sn.push(json[i].address.state);
+          cn.push(json[i].address.city);
         }
         set_product_names(pn);
-        set_states(sn)
+        set_state_names(sn);
+        setCity(cn);
         console.log("Pn => ", pn)
       })
   }, [])
@@ -92,17 +95,19 @@ const Home = () => {
                   </select>
 
                   <select className="form-select form-select-sm">
-                    <option selected>State</option>
-                    <option value={1}>One</option>
-                    <option value={2}>Two</option>
-                    <option value={3}>Three</option>
+                    {["State", ...state_names].map((v, i) => {
+                      return <option value={v} key={i}>
+                        {v}
+                      </option>
+                    })}
                   </select>
 
                   <select className="form-select form-select-sm">
-                    <option selected>City</option>
-                    <option value={1}>One</option>
-                    <option value={2}>Two</option>
-                    <option value={3}>Three</option>
+                    {["City", ...city].map((v, i) => {
+                      return <option value={v} key={i}>
+                        {v}
+                      </option>
+                    })}
                   </select>
                 </div>
 
@@ -136,16 +141,18 @@ const Home = () => {
                 itemClass="carousel-item-padding-40-px"
               >
                 {api_data.map((v, i) => {
-                  return <Items
-                    image={v.image}
-                    product_name={v.product_name}
-                    key={v.i}
-                    brand_name={v.brand_name}
-                    price={v.price}
-                    address={`${v.address.state} , ${v.address.city}`}
-                    date={v.date}
-                    discription={v.discription}
-                  />
+                  return <div key={i}>
+                    <Items
+                      image={v.image}
+                      product_name={v.product_name}
+                      key={v.i}
+                      brand_name={v.brand_name}
+                      price={v.price}
+                      address={`${v.address.state} , ${v.address.city}`}
+                      date={v.date}
+                      discription={v.discription}
+                    />
+                  </div>
                 })}
               </Carousel>;
             </div>
@@ -176,16 +183,18 @@ const Home = () => {
                 itemClass="carousel-item-padding-40-px"
               >
                 {api_data.map((v, i) => {
-                  return <Items
-                    image={v.image}
-                    product_name={v.product_name}
-                    key={v.i}
-                    brand_name={v.brand_name}
-                    price={v.price}
-                    address={`${v.address.state} , ${v.address.city}`}
-                    date={v.date}
-                    discription={v.discription}
-                  />
+                  return <div key={i}>
+                    <Items
+                      image={v.image}
+                      product_name={v.product_name}
+                      key={v.i}
+                      brand_name={v.brand_name}
+                      price={v.price}
+                      address={`${v.address.state} , ${v.address.city}`}
+                      date={v.date}
+                      discription={v.discription}
+                    />
+                  </div>
                 })}
               </Carousel>;
             </div>
