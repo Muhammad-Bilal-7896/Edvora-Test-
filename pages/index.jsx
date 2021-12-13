@@ -99,12 +99,31 @@ const Home = () => {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
               >
-                <div className="border_item">
-                  <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                <div className="individual_item">
+                  <div className="inside_individual_item">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                  </div>
                 </div>
-                <div className="border_item">Item 2</div>
-                <div className="border_item">Item 3</div>
-                <div className="border_item">Item 4</div>
+                {/* <div>
+                      <h5>Product Name</h5>
+                      <h6>Brand Name</h6>
+                      <p>$ 29.99</p>
+                    </div> */}
+                <div className="individual_item">
+                  <div className="inside_individual_item">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                  </div>
+                </div>
+                <div className="individual_item">
+                  <div className="inside_individual_item">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                  </div>
+                </div>
+                <div className="individual_item">
+                  <div className="inside_individual_item">
+                    <img src={`resources/img.png`} className='img_person_avatar' alt="Person Avatar" />
+                  </div>
+                </div>
               </Carousel>;
             </div>
           </div>
