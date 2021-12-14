@@ -72,7 +72,7 @@ const Home = () => {
           var tempProductName;
           var tempBrandName = [];
           var tempPrice = [];
-          var tempAddress ;
+          var tempAddress = [];
           var tempDate = [];
           var tempDiscription = [];
           //////////////////////////////////
@@ -80,13 +80,13 @@ const Home = () => {
             if (unique_pn[i] == json[j].product_name) {
               // let p_name = json[i].product_name;
               // new_m_pn.push(json[i]);
-              tempImageArray=json[j].image;
+              tempImageArray.push(json[j].image);
               tempProductName=json[j].product_name;
-              tempBrandName=json[j].brand_name;
-              tempPrice=json[j].price;
-              tempAddress=json[j].address.state + "," + json[j].address.city;
-              tempDate=json[j].date;
-              tempDiscription=json[j].discription;
+              tempBrandName.push(json[j].brand_name);
+              tempPrice.push(json[j].price);
+              tempAddress.push(json[j].address.state + "," + json[j].address.city);
+              tempDate.push(json[j].date);
+              tempDiscription.push(json[j].discription);
             }
           }
           ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -173,7 +173,7 @@ const Home = () => {
             <h3 className='right_heading1'>Products</h3>
 
             {api_data.map((v, i) => {
-              console.log("Look Here:- " , v);
+              //console.log(v.data.address);
               return <div key={i}>
                 <p className='right_txt'>{v.data.product_name}</p>
 
@@ -197,20 +197,20 @@ const Home = () => {
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
                   >
-                    {/* If the Product Name equals the data product name then render them otherwise not */}
-                    {/* {(v.data).map((v, j) => {
+                    {console.log("fghf : ",v)}
+                    {(api_data).map((z, j) => {
                       return <div key={j}>
                         <Items
-                          image={v.image}
-                          product_name={v.product_name}
-                          brand_name={v.brand_name}
-                          price={v.price}
-                          address={`${v.address.state} , ${v.address.city}`}
-                          date={v.date}
-                          discription={v.discription}
+                          image={z.data.image}
+                          product_name={z.data.product_name}
+                          brand_name={z.data.brand_name}
+                          price={z.data.price}
+                          address={`${z.data.address.state} , ${z.data.address.city}`}
+                          date={z.data.date}
+                          discription={z.data.discription}
                         />
                       </div>
-                    })} */}
+                    })}
                     <div></div>
                   </Carousel>
                 </div>
