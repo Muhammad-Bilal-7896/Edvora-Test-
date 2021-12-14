@@ -1,6 +1,6 @@
 const Items = (props) => {
     return (
-        <div key={props.key} className="individual_item">
+        <div className="individual_item">
             <div className="d-flex .justify-content-center mt-2">
                 <img src={props.image} className='img_person_avatar' alt={props.product_name} />
                 <div className='mt-3'>

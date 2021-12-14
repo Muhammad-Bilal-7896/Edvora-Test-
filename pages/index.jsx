@@ -15,8 +15,8 @@ import 'react-multi-carousel/lib/styles.css';
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3 // optional, default to 1.
+    items: 4,
+    slidesToSlide: 4 // optional, default to 1.
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -43,13 +43,15 @@ const Home = () => {
   //City
   const [city, setCity] = useState([]);
 
+  //Matched PN
+  const [m_pn, set_m_pn] = useState([]);
+
   //Using the useEffect like ComponentDidMount
   useEffect(() => {
     fetch('https://assessment-edvora.herokuapp.com')
       .then(res => res.json())
       .then(json => {
         console.log("JSON data is equal to: ", json);
-        set_api_data(json)
         let pn = [];
         let sn = [];
         let cn = [];
@@ -57,12 +59,63 @@ const Home = () => {
           pn.push(json[i].product_name);
           sn.push(json[i].address.state);
           cn.push(json[i].address.city);
+
         }
         var unique_pn = [...new Set(pn)]; // ["a", "b"]
+
+        var FullData = [];
+
+        for (let i = 0; i < unique_pn.length; i++) {
+          //////////////////////////////////
+          //        var check = [];
+          var tempImageArray = [];
+          var tempProductName;
+          var tempBrandName = [];
+          var tempPrice = [];
+          var tempAddress ;
+          var tempDate = [];
+          var tempDiscription = [];
+          //////////////////////////////////
+          for (let j = 0; j < json.length; j++) {
+            if (unique_pn[i] == json[j].product_name) {
+              // let p_name = json[i].product_name;
+              // new_m_pn.push(json[i]);
+              tempImageArray=json[j].image;
+              tempProductName=json[j].product_name;
+              tempBrandName=json[j].brand_name;
+              tempPrice=json[j].price;
+              tempAddress=json[j].address.state + "," + json[j].address.city;
+              tempDate=json[j].date;
+              tempDiscription=json[j].discription;
+            }
+          }
+          ////////////////////////////////////////////////////////////////////////////////////////////////////
+          var newData = {
+            data: {
+              image: tempImageArray,
+              product_name: tempProductName,
+              brand_name: tempBrandName,
+              price: tempPrice,
+              address: tempAddress,
+              date: tempDate,
+              discription: tempDiscription
+            }
+          };
+          FullData.push(newData);
+          ////////////////////////////////////////////////////////////////////////////////////////////////////
+        }
+
+        console.log("Unique Product name items: ", unique_pn);
+
+        console.log("Full data: ", FullData)
+
+        //Come here and now set the data ab aae ga maza ab aaya na line pe
+        set_api_data(FullData)
+
         set_product_names(unique_pn);
         set_state_names(sn);
         setCity(cn);
-        console.log("Pn => ", pn)
+        //console.log("Pn => ", pn)
       })
   }, [])
 
@@ -119,9 +172,10 @@ const Home = () => {
             <h1 className='right_heading'>Edvora</h1>
             <h3 className='right_heading1'>Products</h3>
 
-            {product_names.map((pn, i) => {
+            {api_data.map((v, i) => {
+              console.log("Look Here:- " , v);
               return <div key={i}>
-                <p className='right_txt'>{pn}</p>
+                <p className='right_txt'>{v.data.product_name}</p>
 
                 <p className='border_line_right'></p>
 
@@ -144,24 +198,20 @@ const Home = () => {
                     itemClass="carousel-item-padding-40-px"
                   >
                     {/* If the Product Name equals the data product name then render them otherwise not */}
-                    {api_data.map((data, j) => {
+                    {/* {(v.data).map((v, j) => {
                       return <div key={j}>
-                        {(data.product_name == pn) ? (
-                          <Items
-                            image={data.image}
-                            product_name={data.product_name}
-                            key={data.j}
-                            brand_name={data.brand_name}
-                            price={data.price}
-                            address={`${data.address.state} , ${data.address.city}`}
-                            date={data.date}
-                            discription={data.discription}
-                          />
-                        ) : (
-                          <div className='d_none'></div>
-                        )}
+                        <Items
+                          image={v.image}
+                          product_name={v.product_name}
+                          brand_name={v.brand_name}
+                          price={v.price}
+                          address={`${v.address.state} , ${v.address.city}`}
+                          date={v.date}
+                          discription={v.discription}
+                        />
                       </div>
-                    })}
+                    })} */}
+                    <div></div>
                   </Carousel>
                 </div>
               </div>
