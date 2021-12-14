@@ -63,6 +63,54 @@ const Home = () => {
         }
         var unique_pn = [...new Set(pn)]; // ["a", "b"]
 
+        // var FullData = [];
+
+        // for (let i = 0; i < unique_pn.length; i++) {
+        //   //////////////////////////////////
+        //   //        var check = [];
+        //   var tempImageArray = [];
+        //   var tempProductName;
+        //   var tempBrandName = [];
+        //   var tempPrice = [];
+        //   var tempAddress = [];
+        //   var tempDate = [];
+        //   var tempDiscription = [];
+        //   //////////////////////////////////
+        //   for (let j = 0; j < json.length; j++) {
+        //     if (unique_pn[i] == json[j].product_name) {
+        //       // let p_name = json[i].product_name;
+        //       // new_m_pn.push(json[i]);
+        //       tempImageArray.push(json[j].image);
+        //       tempProductName = json[j].product_name;
+        //       tempBrandName.push(json[j].brand_name);
+        //       tempPrice.push(json[j].price);
+        //       tempAddress.push(json[j].address.state + "," + json[j].address.city);
+        //       tempDate.push(json[j].date);
+        //       tempDiscription.push(json[j].discription);
+        //     }
+        //   }
+        //   ////////////////////////////////////////////////////////////////////////////////////////////////////
+        //   var newData = {
+        //     data: {
+        //       image: tempImageArray,
+        //       product_name: tempProductName,
+        //       brand_name: tempBrandName,
+        //       price: tempPrice,
+        //       address: tempAddress,
+        //       date: tempDate,
+        //       discription: tempDiscription
+        //     }
+        //   };
+        //   FullData.push(newData);
+        //   ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // }
+
+        //console.log("Unique Product name items: ", unique_pn);
+
+        //console.log("Full data: ", FullData)
+
+
+
         var FullData = [];
 
         for (let i = 0; i < unique_pn.length; i++) {
@@ -81,7 +129,7 @@ const Home = () => {
               // let p_name = json[i].product_name;
               // new_m_pn.push(json[i]);
               tempImageArray.push(json[j].image);
-              tempProductName=json[j].product_name;
+              tempProductName = json[j].product_name;
               tempBrandName.push(json[j].brand_name);
               tempPrice.push(json[j].price);
               tempAddress.push(json[j].address.state + "," + json[j].address.city);
@@ -105,9 +153,10 @@ const Home = () => {
           ////////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
-        console.log("Unique Product name items: ", unique_pn);
 
-        console.log("Full data: ", FullData)
+        for (let i = 0; i < FullData.length; i++) {
+          console.log("====> ", FullData[i]);
+        }
 
         //Come here and now set the data ab aae ga maza ab aaya na line pe
         set_api_data(FullData)
@@ -197,7 +246,7 @@ const Home = () => {
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
                   >
-                    {console.log("fghf : ",v)}
+                    {/* {console.log("fghf : ", v)} */}
                     {(api_data).map((z, j) => {
                       return <div key={j}>
                         <Items
