@@ -141,7 +141,7 @@ const Home = () => {
     set_product_names(tempPN);
     console.log("Temp Json ==> ", tempJson)
     set_api_data(tempJson);
-    alert(e);
+    alert(`Filter Items by Product Name: ${e}`);
   }
   const changingStateNames = (e) => {
     let tempJson = [];
@@ -152,7 +152,7 @@ const Home = () => {
     }
     console.log("Temp Json ==> ", tempJson)
     set_api_data(tempJson);
-    alert(e);
+    alert(`Filter Items by State Name: ${e}`);
   }
   const changingCity = (e) => {
     let tempJson = [];
@@ -163,7 +163,7 @@ const Home = () => {
     }
     console.log("Temp Json ==> ", tempJson)
     set_api_data(tempJson);
-    alert(e);
+    alert(`Filter Items by City Name: ${e}`);
   }
 
   return (
@@ -264,13 +264,13 @@ const Home = () => {
                           />
                         ) : (
                           <Items
-                            image="Not Matched"
-                            product_name="Not Matched"
-                            brand_name="Not Matched"
-                            price="Not Matched"
-                            address="Not Matched"
-                            date="Not Matched"
-                            discription="Not Matched"
+                            image={data.image}
+                            product_name={data.product_name}
+                            brand_name={data.brand_name}
+                            price={data.price}
+                            address={`${data.address.state} , ${data.address.city}`}
+                            date={data.date}
+                            discription={data.discription}
                           />
                         )}
                         {/* <Items
@@ -282,7 +282,7 @@ const Home = () => {
                           address={`${data.address.state} , ${data.address.city}`}
                           date={data.date}
                           discription={data.discription}
-                        /> */}
+                        />  */}
                       </div>
                     })}
                   </Carousel>
