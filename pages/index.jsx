@@ -46,6 +46,11 @@ const Home = () => {
   //Matched PN
   const [m_pn, set_m_pn] = useState([]);
 
+  //For Filtering of Items
+  const [currentPn, setCurrentPn] = useState("");
+  const [currentSn, setCurrentSn] = useState("");
+  const [currentCity, setCurrentCity] = useState("");
+
   //Using the useEffect like ComponentDidMount
   useEffect(() => {
     fetch('https://assessment-edvora.herokuapp.com')
@@ -120,6 +125,47 @@ const Home = () => {
       })
   }, [])
 
+  const changingProductNames = (e) => {
+    let tempJson = [];
+    for (let i = 0; i < api_data.length; i++) {
+      if (e == api_data[i].product_name) {
+        tempJson.push(api_data[i]);
+      }
+    }
+    let tempPN = [];
+    for (let i = 0; i < product_names.length; i++) {
+      if (e == product_names[i]) {
+        tempPN.push(product_names[i]);
+      }
+    }
+    set_product_names(tempPN);
+    console.log("Temp Json ==> ", tempJson)
+    set_api_data(tempJson);
+    alert(e);
+  }
+  const changingStateNames = (e) => {
+    let tempJson = [];
+    for (let i = 0; i < api_data.length; i++) {
+      if (e == api_data[i].address.state) {
+        tempJson.push(api_data[i]);
+      }
+    }
+    console.log("Temp Json ==> ", tempJson)
+    set_api_data(tempJson);
+    alert(e);
+  }
+  const changingCity = (e) => {
+    let tempJson = [];
+    for (let i = 0; i < api_data.length; i++) {
+      if (e == api_data[i].address.city) {
+        tempJson.push(api_data[i]);
+      }
+    }
+    console.log("Temp Json ==> ", tempJson)
+    set_api_data(tempJson);
+    alert(e);
+  }
+
   return (
     <div id="homeMainBody">
       <div className='container_own'>
@@ -137,11 +183,10 @@ const Home = () => {
                 </div>
 
                 <div className="container_own2 mt_custom">
-                  <select className="form-select form-select-sm">
-                    {/* <option selected>Products</option>
-                    <option value={1}>One</option>
-                    <option value={2}>Two</option>
-                    <option value={3}>Three</option>  */}
+                  <select className="form-select form-select-sm"
+                    onChange={(e) => changingProductNames(e.target.value)}
+                    value={currentPn}
+                  >
                     {["Products", ...product_names].map((v, i) => {
                       return <option value={v} key={i}>
                         {v}
@@ -149,7 +194,10 @@ const Home = () => {
                     })}
                   </select>
 
-                  <select className="form-select form-select-sm">
+                  <select className="form-select form-select-sm"
+                    onChange={(e) => changingStateNames(e.target.value)}
+                    value={currentSn}
+                  >
                     {["State", ...state_names].map((v, i) => {
                       return <option value={v} key={i}>
                         {v}
@@ -157,7 +205,10 @@ const Home = () => {
                     })}
                   </select>
 
-                  <select className="form-select form-select-sm">
+                  <select className="form-select form-select-sm"
+                    onChange={(e) => changingCity(e.target.value)}
+                    value={currentCity}
+                  >
                     {["City", ...city].map((v, i) => {
                       return <option value={v} key={i}>
                         {v}
@@ -169,6 +220,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+
           <div className="col-md-9 h-100">
             <h1 className='right_heading'>Edvora</h1>
             <h3 className='right_heading1'>Products</h3>
@@ -204,7 +256,6 @@ const Home = () => {
                           <Items
                             image={data.image}
                             product_name={data.product_name}
-                            key={data.j}
                             brand_name={data.brand_name}
                             price={data.price}
                             address={`${data.address.state} , ${data.address.city}`}
@@ -212,8 +263,26 @@ const Home = () => {
                             discription={data.discription}
                           />
                         ) : (
-                          <div className='individual_item'>Not matched</div>
+                          <Items
+                            image="Not Matched"
+                            product_name="Not Matched"
+                            brand_name="Not Matched"
+                            price="Not Matched"
+                            address="Not Matched"
+                            date="Not Matched"
+                            discription="Not Matched"
+                          />
                         )}
+                        {/* <Items
+                          image={data.image}
+                          product_name={data.product_name}
+                          key={data.j}
+                          brand_name={data.brand_name}
+                          price={data.price}
+                          address={`${data.address.state} , ${data.address.city}`}
+                          date={data.date}
+                          discription={data.discription}
+                        /> */}
                       </div>
                     })}
                   </Carousel>
@@ -265,7 +334,6 @@ const Home = () => {
                 })}
               </Carousel>;
             </div> */}
-
           </div>
         </div>
       </div>
