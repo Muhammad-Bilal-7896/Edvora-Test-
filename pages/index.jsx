@@ -52,6 +52,7 @@ const Home = () => {
       .then(res => res.json())
       .then(json => {
         console.log("JSON data is equal to: ", json);
+        set_api_data(json);
         let pn = [];
         let sn = [];
         let cn = [];
@@ -62,54 +63,6 @@ const Home = () => {
 
         }
         var unique_pn = [...new Set(pn)]; // ["a", "b"]
-
-        // var FullData = [];
-
-        // for (let i = 0; i < unique_pn.length; i++) {
-        //   //////////////////////////////////
-        //   //        var check = [];
-        //   var tempImageArray = [];
-        //   var tempProductName;
-        //   var tempBrandName = [];
-        //   var tempPrice = [];
-        //   var tempAddress = [];
-        //   var tempDate = [];
-        //   var tempDiscription = [];
-        //   //////////////////////////////////
-        //   for (let j = 0; j < json.length; j++) {
-        //     if (unique_pn[i] == json[j].product_name) {
-        //       // let p_name = json[i].product_name;
-        //       // new_m_pn.push(json[i]);
-        //       tempImageArray.push(json[j].image);
-        //       tempProductName = json[j].product_name;
-        //       tempBrandName.push(json[j].brand_name);
-        //       tempPrice.push(json[j].price);
-        //       tempAddress.push(json[j].address.state + "," + json[j].address.city);
-        //       tempDate.push(json[j].date);
-        //       tempDiscription.push(json[j].discription);
-        //     }
-        //   }
-        //   ////////////////////////////////////////////////////////////////////////////////////////////////////
-        //   var newData = {
-        //     data: {
-        //       image: tempImageArray,
-        //       product_name: tempProductName,
-        //       brand_name: tempBrandName,
-        //       price: tempPrice,
-        //       address: tempAddress,
-        //       date: tempDate,
-        //       discription: tempDiscription
-        //     }
-        //   };
-        //   FullData.push(newData);
-        //   ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // }
-
-        //console.log("Unique Product name items: ", unique_pn);
-
-        //console.log("Full data: ", FullData)
-
-
 
         var FullData = [];
 
@@ -153,13 +106,12 @@ const Home = () => {
           ////////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
+        //console.log("Unique Product name items: ", unique_pn);
 
-        for (let i = 0; i < FullData.length; i++) {
-          console.log("====> ", FullData[i]);
-        }
+        //console.log("Full data: ", FullData)
 
         //Come here and now set the data ab aae ga maza ab aaya na line pe
-        set_api_data(FullData)
+        //set_api_data(FullData)
 
         set_product_names(unique_pn);
         set_state_names(sn);
@@ -221,10 +173,9 @@ const Home = () => {
             <h1 className='right_heading'>Edvora</h1>
             <h3 className='right_heading1'>Products</h3>
 
-            {api_data.map((v, i) => {
-              //console.log(v.data.address);
+            {product_names.map((pn, i) => {
               return <div key={i}>
-                <p className='right_txt'>{v.data.product_name}</p>
+                <p className='right_txt'>{pn}</p>
 
                 <p className='border_line_right'></p>
 
@@ -246,21 +197,25 @@ const Home = () => {
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
                   >
-                    {/* {console.log("fghf : ", v)} */}
-                    {(api_data).map((z, j) => {
+                    {/* If the Product Name equals the data product name then render them otherwise not */}
+                    {api_data.map((data, j) => {
                       return <div key={j}>
-                        <Items
-                          image={z.data.image}
-                          product_name={z.data.product_name}
-                          brand_name={z.data.brand_name}
-                          price={z.data.price}
-                          address={`${z.data.address.state} , ${z.data.address.city}`}
-                          date={z.data.date}
-                          discription={z.data.discription}
-                        />
+                        {(data.product_name == pn) ? (
+                          <Items
+                            image={data.image}
+                            product_name={data.product_name}
+                            key={data.j}
+                            brand_name={data.brand_name}
+                            price={data.price}
+                            address={`${data.address.state} , ${data.address.city}`}
+                            date={data.date}
+                            discription={data.discription}
+                          />
+                        ) : (
+                          <div className='individual_item'>Not matched</div>
+                        )}
                       </div>
                     })}
-                    <div></div>
                   </Carousel>
                 </div>
               </div>
